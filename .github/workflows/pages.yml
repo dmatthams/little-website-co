@@ -1,9 +1,8 @@
 name: Build Assets
 
-# Controls when the workflow will run
 on:
    push:
-   branches: ['main']
+      branches: ['main']
    pull_request:
       branches: ['main']
 
@@ -14,7 +13,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
          - uses: actions/checkout@v3
-
          - name: Cache
            id: npm-cache
            uses: actions/cache@v2
@@ -36,13 +34,13 @@ jobs:
    deploy:
       environment:
          name: github-pages
-      runs-on: ubuntu-latest
-      permissions:
-         id-token: write
-         pages: write
-         contents: read
-      needs: build
-      steps:
-         - name: Deploy to GitHub Pages
-           id: deployment
-           uses: actions/deploy-pages@v1
+         runs-on: ubuntu-latest
+         permissions:
+            id-token: write
+            pages: write
+            contents: read
+         needs: build
+         steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v1
