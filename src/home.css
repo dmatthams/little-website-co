@@ -1,5 +1,3 @@
-* {
-	color:white;
-	font-size: 4rem;
+.featured-work_text .swiper-slide:not(.swiper-slide-visible) {
+	opacity:0 !important;
 }
-
